@@ -31,6 +31,7 @@ with open(secret_file) as f:
 
 
 # secrets.json 파일에서 SECRET_KEY 가져오기
+'''
 def get_secret(setting, secrets=secrets):
     try:
         return secrets[setting]
@@ -40,10 +41,13 @@ def get_secret(setting, secrets=secrets):
 
 
 SECRET_KEY = get_secret("SECRET_KEY")
+'''
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # kakao 로그인에 필요한 key, uri
-KAKAO_KEY = get_secret("KAKAO_KEY")
-kakao_redirect_uri = get_secret("KAKAO_REDIRECT_URI")
+KAKAO_KEY = os.environ.get("KAKAO_KEY")
+kakao_redirect_uri = os.environ.get("KAKAO_REDIRECT_URI")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -175,7 +179,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mutbly',
         'USER': 'root',
-        'PASSWORD': get_secret("DB_PASSWORD"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
         'HOST': 'localhost',
         'PORT': 3306,
     }
