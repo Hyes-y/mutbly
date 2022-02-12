@@ -1,6 +1,6 @@
 from .common import *
 
-
+'''
 def read_secret(secret_name):
     file = open("/run/secrets/" + secret_name)
     secret = file.read()
@@ -11,6 +11,8 @@ def read_secret(secret_name):
 
 
 SECRET_KEY = read_secret("DJANGO_SECRET_KEY")
+'''
+
 DEBUG = False
 
 
