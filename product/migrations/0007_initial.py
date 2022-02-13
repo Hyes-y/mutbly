@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('user', '0003_user_is_social_alter_user_user_email_and_more'),
-        # ('shop', '0001_initial'),
+        ('shop', '0001_initial'),
     ]
 
     operations = [
