@@ -186,7 +186,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mutbly',
         'USER': 'root',
-        'PASSWORD': config("DB_PASSWORD"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
         'HOST': 'localhost',
         'PORT': 3306,
     }
