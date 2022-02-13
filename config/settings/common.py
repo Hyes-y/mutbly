@@ -14,6 +14,8 @@ from pathlib import Path
 import os, json
 from django.core.exceptions import ImproperlyConfigured
 from datetime import timedelta
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -54,6 +56,8 @@ kakao_redirect_uri = os.environ.get("KAKAO_REDIRECT_URI")
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     'https://www.mutbly.shop'
@@ -102,12 +106,14 @@ MIDDLEWARE = [
 
 
 # script안에서의 리소스 요청을 허용할 도메인 추가
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:3000',
     'http://127.0.0.1:8000',
     'http://127.0.0.1:3000',
-)
+]
+
+CORS_ORIGIN_WHITELIST += CSRF_TRUSTED_ORIGINS
 
 
 # REST_FRAMEWORK = {
@@ -180,7 +186,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mutbly',
         'USER': 'root',
-        'PASSWORD': os.environ.get("DB_PASSWORD"),
+        'PASSWORD': config("DB_PASSWORD"),
         'HOST': 'localhost',
         'PORT': 3306,
     }
