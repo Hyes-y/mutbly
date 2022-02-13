@@ -13,8 +13,10 @@ def read_secret(secret_name):
 SECRET_KEY = read_secret("DJANGO_SECRET_KEY")
 '''
 
+
 DEBUG = False
 
+STATICFILES_DIRS = []
 
 DATABASES = {
     'default': {
