@@ -46,7 +46,7 @@ def get_secret(setting, secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 '''
 
-SECRET_KEY = "django-insecure-1!iel4!8s$(84okpyo11#-=%n-wml2%wsxh9l2bprvem$pmw6("
+SECRET_KEY = "SECRET KEY"
 
 # kakao 로그인에 필요한 key, uri
 KAKAO_KEY = os.environ.get("KAKAO_KEY")
